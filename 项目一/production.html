@@ -1,0 +1,412 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#header,body{
+				background: #fff;
+			}
+			.navbar-default{
+				background-color: #f8f8f8;
+				border-color: #e7e7e7;
+			}
+			#header{
+				position: absolute;
+				z-index: 999;
+				width: 100%;
+			}
+			#header,.header-fixed{
+				position: fixed;
+				min-height: 54px;
+				transition-property: all;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-in-out;
+				transition-delay: 0s;
+				box-shadow: 0 1px 3px hsla(0,0%,39%,.2);
+			}
+			.carousel-indicators li{
+				width: 12px;height: 12px;
+				border-radius: 50%;
+				background: #fff;
+				margin-left: 0.25rem;
+				margin-right: 0.25rem;
+			}
+			.carousel-indicators .active{
+				background: #0aa1ed;
+			}
+			.carousel-control-next,
+			.carousel-control-prev{
+				width: 2%;height: 20%;
+				background-color: #aaa;
+				background: scroll;
+				border-radius: 0.25rem;
+				top: 40%;
+			}
+			.container div a img{width: 223.86px;height: 50px;}
+			a{
+				font-size: 14px;
+				color: #777;
+			}
+			.navbar-nav a:hover{
+				line-height: 10px;
+				border-top: 3px solid limegreen;
+				border-top-height:10px ;
+				color: limegreen;
+				text-decoration: none;
+				transition: all 0.3s ease-in;  
+			}
+			.index_tittle{
+				margin: 40px 0 40px;
+				font-size: 32px;
+				font-weight: 400px;
+			}
+			.index_div{
+				width: 4000px;
+				height: 210px;
+			}
+			.index_h3{
+				font-size: 24px;
+			}
+			.index_p{
+				padding: 0;
+				font-size: 13px;
+				color: #999;
+				line-height: 1.6rem;
+			}
+			index div{
+				padding: 10px;
+			} 
+			
+			.s-head {
+			    position: relative;
+			    margin-bottom: 10px;
+			    text-align: center;
+			    top: 30px;
+			    opacity: 0;
+			}
+			.clearfix:after, .clearfix:before {
+			    content: " ";
+			    display: table;
+					box-sizing: border-box;
+			}
+			p{
+				margin: 0 0 10px;
+			}
+			.s-head-title {
+			    position: relative;
+			    width: 250px;
+			    padding-bottom: 10px;
+			    margin: 0 auto;
+			    font-weight: 400px;
+					
+			}
+			
+			.s-head-title:after {
+			    background-image: linear-gradient(to right, transparent 0%, #81d742 30%, #81d742 70%, transparent 100%);
+			}
+			
+			.s-head-title:after {
+			    background-image-color: #81d742;
+			}
+			.s-head-title:after {
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 1px;
+			    background-image: linear-gradient(90deg,transparent 0,#a0ce4e 30%,#a0ce4e 70%,transparent);
+			    opacity: 6;
+			    content: "";
+			}
+			index div{
+				padding: 10px;
+			}
+			.p-item{
+				padding: 0 8px;
+				margin-bottom: 16px;
+			}
+			#index_section_ul_li_a_img{
+				width: 273px;
+				height: 218px;
+				padding: 10px 2px;
+			}
+			#index_section_div_p {
+			    margin-top: 5px;
+			    font-family: times;
+			    font-size: 16px;
+			    color: #999;
+			}
+			#index_section_div_a{
+				color: #333;
+				font-size: 14px;
+				line-height: 20px;
+				text-align: center;
+				text-decoration: none;
+			}
+			
+			.carousel-indicators-button li{
+				width: 12px;height: 12px;
+				border-radius: 50%;
+				background: #fff;
+				margin-left: 0.25rem;
+				margin-right: 0.25rem;
+			}
+			.carousel-indicators-button .active{
+				background: #0aa1ed;
+			}
+			.carousel-control-next-button,
+			.carousel-control-prev-button{
+				width: 4%;height: 20%;
+				background-color: #aaa;
+				border-radius: 0.25rem;
+				top: 40%;
+			}
+			
+			#a1:hover .text{
+				display: block !important; 
+				}
+				.d1{
+					position: relative;
+				}
+			.text{
+				    position: absolute;
+				    left: 10px;
+				    top: 20px;
+				    width: 273px;
+				    height: 200px;
+				    content: "";
+				    background-color: rgba(124,236,50,0.6);
+						z-index: 1;
+						display: none;
+						padding: 0px;		
+				    /* filter: alpha(opacity=0); */
+				}
+				#a_left{
+					 font-size: 18px;
+					 border-bottom: solid 3px #0f0;
+				}
+				#a_right{
+					font-size: 12;
+					color: #0f0;
+					text-align: right;
+				}
+				#button{
+					padding: 4px;
+					color: green;
+					background-color: #fff;
+					position: absolute;
+					top: 40%;
+					left: 40%;
+					opacity: 1;
+					outline: none;
+				}
+				#tr_boder_bottom{
+					border-bottom: 1px dotted #ccc;
+				}
+				.footer {
+						text-align: center;
+				    padding: 15px 0 0;
+				    margin-top: 30px;
+				    font-size: 13px;
+				    color: #aaa;
+				    background-color: #343434;
+				}
+				.footer_bottom{
+					background-color: #2a2a2a;
+					padding: 30px 0;
+				}
+				.footer_h6{
+					color: #eee;
+				}
+				#img_h:hover{
+					transform: scale(1.1,1.1);
+				}
+				
+				.action {
+				    position: fixed;
+				    z-index: 999;
+				    bottom: 20%;
+				    right: 20px;
+				    width: 40px;
+				}
+				.action.action-color-1 .action-item {
+				    background-color: #93d664;
+				}
+				.post_head_title{
+					margin: 0;
+					font-size: 24px;
+					font-weight: 400;
+					line-height: 32px;
+					color: #333;
+				}
+				.post_head>div{
+					width: 1517px;
+					height: 80px;
+					background: #f1f3f1;
+					padding: 24px 0;
+				}
+				
+		</style>
+	</head>
+	<body>
+		<div class="containers">
+			 <div style="background-color: #f1f3f1;" class="row p-3">
+				<div class="text-right col-3 float-left"><h4 style="margin-left: 150px;">精品案列</h4></div>
+				<div class="col-6"></div>
+				<div class="text-left col-3 float-right"><img style="width: 20px;height: 20px;" src="./picture_img/地理位置.png" alt="">
+					<a style="color: lawngreen;" href="#">首页</a> / 
+					<a style="color: lawngreen;" href="#">精品案例</a>
+				</div>
+			 </div>
+			 
+			 <div style="width: 1170px;margin: auto;" class="row pt-4">
+				 <div style="width: 860px" class="col-9">
+					 <ul class="row list-unstyled p-3">
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 <li class="col-sm-6 col-md-4 col-sm-6">
+						  <div>
+						 		<a href=""><img style="width: 276px;height: 184px;" src="picture_img/119154017-480x320.png" alt=""></a>
+						 		<p>日料餐厅惊现黑帮纹身</p>
+						  </div>
+						 </li>
+						 
+					 </ul>
+				 </div>
+				 <div class="col-3 flex-column">
+					 <div>
+						<div class="p-3">
+							<table class="text-center" style="background-color: #f1f3f1;width: 290px;height: 400px;">
+								<tr>
+									<td><a href="">快速导航</a></td>
+								</tr>
+								<tr>
+									<td><a href="">3D墙地面立体画</a></td>
+								</tr>
+								<tr>
+									<td><a href="">样板间彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">古建筑彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">家装别墅彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">主题餐厅彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">主题酒店会所彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">学校幼儿园彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">市政文化墙彩绘</a></td>
+								</tr>
+								<tr>
+									<td><a href="">艺术涂鸦</a></td>
+								</tr>
+								<tr>
+									<td><a href="">主题公园游乐场彩绘</a></td>
+								</tr>
+							</table>
+							</div>
+							<div>
+								<h4 style="border-bottom: #00FF00 2px solid;">热门搜索</h4>
+								<a style="font-size:10px;color:lawngreen; " href="">风景墙绘</a>
+								<a style="font-size:20px;color:lawngreen; " href="">墙绘知识</a>
+								<a style="font-size:30px;color:lawngreen; " href="">loft风格</a>
+								<a style="font-size:40px;color:lawngreen; " href="">创意空间</a>
+								<a style="font-size:20px;color:lawngreen; " href="">手绘背景墙素材</a>
+								<a style="font-size:30px;color:lawngreen; " href="">彩绘</a>
+								<a style="font-size:10px;color:lawngreen; " href="">风景墙绘</a>
+								<a style="font-size:40px;color:lawngreen; " href="">主题餐厅彩绘</a>
+								<a style="font-size:10px;color:lawngreen; " href="">墙绘素材</a>
+								<a style="font-size:10px;color:lawngreen; " href="">风景墙绘</a>
+								<a style="font-size:20px;color:lawngreen; " href="">墙绘知识</a>
+								<a style="font-size:30px;color:lawngreen; " href="">loft风格</a>
+								<a style="font-size:40px;color:lawngreen; " href="">创意空间</a>
+								<a style="font-size:20px;color:lawngreen; " href="">手绘背景墙素材</a>
+								<a style="font-size:30px;color:lawngreen; " href="">彩绘</a>
+								<a style="font-size:10px;color:lawngreen; " href="">风景墙绘</a>
+								<a style="font-size:40px;color:lawngreen; " href="">主题餐厅彩绘</a>
+								<a style="font-size:10px;color:lawngreen; " href="">墙绘素材</a>
+							</div>
+				 </div>
+			 </div>
+			 
+			 
+		</div>
+	</body>
+</html>

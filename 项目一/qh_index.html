@@ -1,0 +1,647 @@
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="stylesheet" href="css/bootstrap.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/popper.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<style type="text/css">
+			*{margin: 0;padding: 0;}
+			#header,body{
+				background: #fff;
+			}
+			.navbar-default{
+				background-color: #f8f8f8;
+				border-color: #e7e7e7;
+			}
+			#header{
+				position: absolute;
+				z-index: 999;
+				width: 100%;
+			}
+			#header,.header-fixed{
+				position: fixed;
+				min-height: 54px;
+				transition-property: all;
+				transition-duration: 0.3s;
+				transition-timing-function: ease-in-out;
+				transition-delay: 0s;
+				box-shadow: 0 1px 3px hsla(0,0%,39%,.2);
+			}
+			.carousel-indicators li{
+				width: 12px;height: 12px;
+				border-radius: 50%;
+				background: #fff;
+				margin-left: 0.25rem;
+				margin-right: 0.25rem;
+			}
+			.carousel-indicators .active{
+				background: #0aa1ed;
+			}
+			.carousel-control-next,
+			.carousel-control-prev{
+				width: 2%;height: 20%;
+				background-color: #aaa;
+				background: scroll;
+				border-radius: 0.25rem;
+				top: 40%;
+			}
+			.container div a img{width: 223.86px;height: 50px;}
+			a{
+				font-size: 14px;
+				color: #777;
+			}
+			.navbar-nav a:hover{
+				line-height: 10px;
+				border-top: 3px solid limegreen;
+				border-top-height:10px ;
+				color: limegreen;
+				text-decoration: none;
+				transition: all 0.3s ease-in;  
+			}
+			.index_tittle{
+				margin: 40px 0 40px;
+				font-size: 32px;
+				font-weight: 400px;
+			}
+			.index_div{
+				width: 4000px;
+				height: 210px;
+			}
+			.index_h3{
+				font-size: 24px;
+			}
+			.index_p{
+				padding: 0;
+				font-size: 13px;
+				color: #999;
+				line-height: 1.6rem;
+			}
+			index div{
+				padding: 10px;
+			} 
+			
+			.s-head {
+			    position: relative;
+			    margin-bottom: 10px;
+			    text-align: center;
+			    top: 30px;
+			    opacity: 0;
+			}
+			.clearfix:after, .clearfix:before {
+			    content: " ";
+			    display: table;
+					box-sizing: border-box;
+			}
+			p{
+				margin: 0 0 10px;
+			}
+			.s-head-title {
+			    position: relative;
+			    width: 250px;
+			    padding-bottom: 10px;
+			    margin: 0 auto;
+			    font-weight: 400px;
+					
+			}
+			
+			.s-head-title:after {
+			    background-image: linear-gradient(to right, transparent 0%, #81d742 30%, #81d742 70%, transparent 100%);
+			}
+			
+			.s-head-title:after {
+			    background-image-color: #81d742;
+			}
+			.s-head-title:after {
+			    position: absolute;
+			    bottom: 0;
+			    left: 0;
+			    width: 100%;
+			    height: 1px;
+			    background-image: linear-gradient(90deg,transparent 0,#a0ce4e 30%,#a0ce4e 70%,transparent);
+			    opacity: 6;
+			    content: "";
+			}
+			index div{
+				padding: 10px;
+			}
+			.p-item{
+				padding: 0 8px;
+				margin-bottom: 16px;
+			}
+			#index_section_ul_li_a_img{
+				width: 273px;
+				height: 218px;
+				padding: 10px 2px;
+			}
+			#index_section_div_p {
+			    margin-top: 5px;
+			    font-family: times;
+			    font-size: 16px;
+			    color: #999;
+			}
+			#index_section_div_a{
+				color: #333;
+				font-size: 14px;
+				line-height: 20px;
+				text-align: center;
+				text-decoration: none;
+			}
+			
+			.carousel-indicators-button li{
+				width: 12px;height: 12px;
+				border-radius: 50%;
+				background: #fff;
+				margin-left: 0.25rem;
+				margin-right: 0.25rem;
+			}
+			.carousel-indicators-button .active{
+				background: #0aa1ed;
+			}
+			.carousel-control-next-button,
+			.carousel-control-prev-button{
+				width: 4%;height: 20%;
+				background-color: #aaa;
+				border-radius: 0.25rem;
+				top: 40%;
+			}
+			
+			#a1:hover .text{
+				display: block !important; 
+				}
+				.d1{
+					position: relative;
+				}
+			.text{
+				    position: absolute;
+				    left: 10px;
+				    top: 20px;
+				    width: 273px;
+				    height: 200px;
+				    content: "";
+				    background-color: rgba(124,236,50,0.6);
+						z-index: 1;
+						display: none;
+						padding: 0px;		
+				    /* filter: alpha(opacity=0); */
+				}
+				#a_left{
+					 font-size: 18px;
+					 border-bottom: solid 3px #0f0;
+				}
+				#a_right{
+					font-size: 12;
+					color: #0f0;
+					text-align: right;
+				}
+				#button{
+					padding: 4px;
+					color: green;
+					background-color: #fff;
+					position: absolute;
+					top: 40%;
+					left: 40%;
+					opacity: 1;
+					outline: none;
+				}
+				#tr_boder_bottom{
+					border-bottom: 1px dotted #ccc;
+				}
+				.footer {
+						text-align: center;
+				    padding: 15px 0 0;
+				    margin-top: 30px;
+				    font-size: 13px;
+				    color: #aaa;
+				    background-color: #343434;
+				}
+				.footer_bottom{
+					background-color: #2a2a2a;
+					padding: 30px 0;
+				}
+				.footer_h6{
+					color: #eee;
+				}
+				#img_h:hover{
+					transform: scale(1.1,1.1);
+				}
+				
+				.action {
+				    position: fixed;
+				    z-index: 999;
+				    bottom: 20%;
+				    right: 20px;
+				    width: 40px;
+				}
+				.action.action-color-1 .action-item {
+				    background-color: #93d664;
+				}
+				
+		</style>
+	</head>
+	<body>
+		<header id="header" class="text-center navbar-default header-fixed">
+		<div class="container" class="text-danger clearfix">
+			<div class="navbar navbar-dark bg-white navbar-expand-lg">
+				<a class="navbar-brand" href="#"><img src="picture_img/logo.png" alt=""></a>
+				<button data-toggle="collapse" data-target="#text" class="navbar-toggler">
+					<span class="navbar-toggler-icon bg-success"></span>
+				</button>
+				<div id="text" class="collapse navbar-collapse justify-content-around">
+					<ul class="navbar-nav">
+						<li class="nav-item disabled"><a class="m-3" class="nav-link" href="#">首页</a></li>
+						<li class="nav-item"><a class="m-3" class="nav-link" href="#">公司简介</a></li>
+						<div class="dropdown"><li class="nav-item"><a class="m-3" class="nav-link" href="#" data-toggle="dropdown" class="dropdown-toggle">作品</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">3D画</a></li>
+								<li><a href="#">样板间彩绘</a></li>
+								<li><a href="#">古建筑彩绘</a></li>
+								<li><a href="#">家装彩绘</a></li>
+								<li><a href="#">工装彩绘</a></li>
+								<li><a href="#">艺术涂鸦</a></li>
+							</ul>
+						</li></div>
+						<div class="dropdown"><li class="nav-item"><a class="m-3" class="nav-link" href="#" data-toggle="dropdown" class="dropdown-toggle">新闻中心</a>
+							<ul class="dropdown-menu">
+								<li><a href="#">艺讯杂文</a></li>
+							</ul>
+						</li></div>
+						<li class="nav-item"><a class="m-3" class="nav-link" href="#">联系我们</a></li>
+						<li class="nav-item"><a class="m-3" class="nav-link" href="#">TEL:123456789</a></li>
+						<li class="nav-item"><a class="m-3" class="nav-link" href="#">
+							<svg class="alert-dismissible" width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+								<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+							</svg>
+						</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</header>
+			<div class="carousel" data-ride="carousel" id="demo">
+				<!-- 1.轮播的图片 -->
+				<div class="carousel-inner">
+					<div class="carousel-item active">
+						<img class="w-100" src="picture_img/lunbo.jpg" alt="">
+					</div>
+					<div class="carousel-item">
+						<img class="w-100" src="picture_img/lunbo1.jpg" alt="">
+					</div>
+					<div class="carousel-item">
+						<img class="w-100" src="picture_img/lunbo2.jpg" alt="">
+					</div>
+					
+				</div>
+				<!-- 2.轮播指示器 -->
+				<ul class="carousel-indicators">
+					<li data-target="#demo" data-slide-to="0" class="active"></li>
+					<li data-target="#demo" data-slide-to="1"></li>
+					<li data-target="#demo" data-slide-to="2"></li>
+				</ul>
+				
+				<!-- 3.左右箭头		 -->
+				<a data-slide="next" href="#demo" class="carousel-control-next">
+					<span class="carousel-control-next-icon"></span>
+				</a>
+				<a deta-slide="prev" href="#demo" class="carousel-control-prev">
+					<span class="carousel-control-prev-icon"></span>
+				</a>
+				
+			</div>
+		
+		
+		<index>
+			<section>
+			<div class="container text-center" >
+				<h2 class="text-center index_tittle">为什么选择我们 ？</h2>
+				<div class="row">
+					<div class="col-xs-6 col-sm-6 col-md-4">
+						<img id="img_h" class="bg-transparent" src="picture_img/index_1.png" alt="">
+						<h3 class="index_h3">专业的设计施工团队</h3>
+						<p class="index_p">团队均为从业多年资深画师和设计师组成，从业经验丰富态度严谨，只为打造精品</p>
+					</div>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<img id="img_h" class="bg-transparent" src="picture_img/index_02.png" alt="">
+					<h3 class="index_h3">7乘24小时急速反应</h3>
+					<p class="index_p">高效合理配置资源，让您售前和售后的任何时间都能及时得到波普的反馈和帮助</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<img id="img_h" class="bg-transparent" src="picture_img/index_03.png" alt="">
+					<h3 class="index_h3">是信仰也是事业</h3>
+					<p class="index_p">绘画是波普人的事业更是波普人的信仰，因为热爱所以专注，因为专注所以专业</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<img id="img_h" class="bg-transparent" src="picture_img/index_04.png" alt="">
+					<h3 class="index_h3">安全环保0污染</h3>
+					<p class="index_p">绘画级颜料，非普通漆类产品可比，波普给您多彩创意空间更给您畅快呼吸的理由</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<img id="img_h" class="bg-transparent" src="picture_img/index_05.png" alt="">
+					<h3 class="index_h3">省钱才是硬道理</h3>
+					<p class="index_p">为了让手绘壁画得到更广泛的普及，波普在保证高质量的同时也对广大客户做出最大力让利</p>
+				</div>
+				<div class="col-xs-6 col-sm-6 col-md-4">
+					<img id="img_h" class="bg-transparent" src="picture_img/index_06.png" alt="">
+					<h3 class="index_h3">先做朋友再做生意</h3>
+					<p class="index_p">我们坚信态度决定一切，认真去做每一幅作品，用心对待每一位客户，决不做一锤子生意</p>
+				</div>
+				</div>
+				
+			<section class="a">
+				<div style="padding-top: 50px;" class="clearfix">
+					<h3 style="font-size: 24px;" class="s-head-title">精品案例</h3>
+					<p id="index_section_div_p">Latest Products</p>
+				</div>
+				<ul class="row clearfix list-unstyled" >
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/2018112208504418-480x320.jpg" alt="">
+								</a>
+							<h2><a id="index_section_div_a" href="#">东南亚主题墙绘壁画素材</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/qsz-5-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">胶州青山座烤肉彩绘</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/IMG_7968-1-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">日照海洋馆企鹅通道壁画</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/3347-15-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">日照海洋公园关键通道全景壁画</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/smg-8-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">荧光画水母馆-海洋公园水母馆</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/IMG_6789-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">集装箱彩绘民宿-手绘集装箱</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/ycyc-8-480x320.jpg" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">青岛万科中心手绘</a></h2>
+						</div>
+					</li>
+					<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+						<div class="d1">
+							<a href="#" id="a1">
+								<div class="text"><button id="button">查看详情</button></div>
+								<img id="index_section_ul_li_a_img" src="picture_img/hjfa-1-480x320.png" alt=""></a>
+							<h2><a id="index_section_div_a" href="#">纺织谷艺术工厂loft墙绘</a></h2>
+						</div>
+					</li>
+				</ul>
+			</section>
+				
+			<section>
+				<div style="padding-top: 10px;" class="clearfix">
+					<h3 style="font-size: 24px;" class="s-head-title">热门产品</h3>
+					<p id="index_section_div_p">Hot Products</p>
+				</div>
+				<div>
+					<div class="carousel" data-ride="carousel" id="demo">
+						<div class="carousel-inner">
+							<div class="carousel-item active">
+								<ul class="row clearfix list-unstyled" >
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img style="margin-left: 2px;" class="btn-outline-info" id="index_section_ul_li_a_img" src="picture_img/119154017-480x320.png" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">银基王朝东南郡样板房彩绘</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-success" id="index_section_ul_li_a_img" src="picture_img/wdchf-27-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">胶州青山座烤肉彩绘</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-danger" id="index_section_ul_li_a_img" src="picture_img/IMG_1844-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">日照海洋馆企鹅通道壁画</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-warning" id="index_section_ul_li_a_img" src="picture_img/faybj-1-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">日照海洋公园关键通道全景壁画</a></h2>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="carousel-item ">
+								<ul class="row clearfix list-unstyled" >
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-info" id="index_section_ul_li_a_img" src="picture_img/2018112208504418-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">东南亚主题墙绘壁画素材</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-success" id="index_section_ul_li_a_img" src="picture_img/qsz-5-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">胶州青山座烤肉彩绘</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-danger" id="index_section_ul_li_a_img" src="picture_img/IMG_7968-1-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">日照海洋馆企鹅通道壁画</a></h2>
+										</div>
+									</li>
+									<li class="col-xs-6 col-md-3 col-sm-6 p-item">
+										<div>
+											<a href="#"><img class="btn-outline-warning" id="index_section_ul_li_a_img" src="picture_img/3347-15-480x320.jpg" alt=""></a>
+											<h2><a id="index_section_div_a" href="#">日照海洋公园关键通道全景壁画</a></h2>
+										</div>
+									</li>
+								</ul>
+							</div>
+							
+							<!-- 轮播指示器（省略未写）  -->
+							
+							<a data-slide="next" href="#demo" class="carousel-control-next">
+								<span class="carousel-control-next-icon"></span>
+							</a>
+							<a deta-slide="prev" href="#demo" class="carousel-control-prev">
+								<span class="carousel-control-prev-icon"></span>
+							</a>
+						</div>
+					</div>
+				</div>
+			</section>
+				
+			<section>
+				<div style="padding-top: 10px;" class="clearfix">
+					<h3 style="font-size: 24px;" class="s-head-title">新闻常识</h3>
+					<p id="index_section_div_p">News/Trying</p>
+				</div>
+				<div class="row no-gutters">
+					<div class="col-xs-12 col-sm-6 col-md-6" class="row">
+						<table style="width: 585px; height: 281px;">
+							<tr>
+								<td><a id="a_left" href="#">新闻中心</a></td>
+								<td><a id="a_right" href="">更多>></a></td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="#">波普印象墙绘合同范本</a></td>
+								<td>2019-05-14</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">东南亚主题墙绘壁画素材</a></td>
+								<td>2018-11-22</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">在地面做手绘如何能持久</a></td>
+								<td>2017-09-10</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">银基王朝东南郡样板房彩绘</a></td>
+								<td>2017-05-25</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">墙绘壁画行业网站应该注意哪些</a></td>
+								<td>2017-03-21</td>
+							</tr>
+						</table>
+					</div>
+					
+					<div class="col-xs-12 col-sm-6 col-md-6" class="row">
+						<table style="width: 585px; height: 281px;">
+							<tr>
+								<td><a id="a_left" href="">手绘常识</a></td>
+								<td><a id="a_right" href="">更多>></a></td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">波普印象墙绘合同范本</a></td>
+								<td>2019-05-14</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">东南亚主题墙绘壁画素材</a></td>
+								<td>2018-11-22</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">在地面做手绘如何能持久</a></td>
+								<td>2017-09-10</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">银基王朝东南郡样板房彩绘</a></td>
+								<td>2017-05-25</td>
+							</tr>
+							<tr id="tr_boder_bottom">
+								<td><a href="">墙绘壁画行业网站应该注意哪些</a></td>
+								<td>2017-03-21</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+			</section>
+				
+			<section>
+				<div style="padding-top: 10px;" class="clearfix">
+					<h3 style="font-size: 24px;" class="s-head-title">合作伙伴</h3>
+					<p id="index_section_div_p">Partner</p>
+				</div>
+				
+					<ul class="row list-unstyled">
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/dzdf.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-1.jpg" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-1.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-2.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-3.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-4.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzd-5.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzzz-1.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzzz-2.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzzz-3.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzzz-4.png" alt=""></a></li>
+						<li class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-2"><a href=""><img id="img_h" class="m-3" src="picture_img/hzzz-5.png" alt=""></a></li>
+										
+					</ul>
+				<div style="border-top: 1px solid #ccc;">
+					友情链接：<a href="">VR立体样板间 | </a><a href="">VR虚拟样板间 | </a><a href="">上海墙绘公司 | </a><a href="">中国墙绘网 | </a><a href="">成都幼儿园彩绘 | </a><a href="">海口墙绘公司 | </a><a href="">淮坊墙绘 | </a><a href="">青岛3D画 | </a><a href="">烟台样板间彩绘 | </a><a href="">绵阳墙绘公司 | </a><a href="">忄度墙绘艺术工作室 | </a><a href="">四川墙绘公司 | </a><a href="">成都手绘网 | </a>
+				</div>
+			</section>
+			</div>
+		</index>
+		
+		<div></div>
+		
+		<footer class="footer">
+			<div class="container row m-auto">
+			<div class="col-md-2 col-sm-4 col-xs-4">
+				<h6 class="footer_h6">关于</h6>
+				<ul class="list-unstyled">
+					<li><a href="">公司简介</a></li>
+					<li><a href="">团队成员</a></li>
+					<li><a href="">团建活动</a></li>
+					<li><a href="">加入波普</a></li>
+					<li><a href="">联系我们</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2 col-sm-4 col-xs-4">
+				<h6 class="footer_h6">服务</h6>
+				<ul class="list-unstyled">
+					<li><a href="">主题餐厅彩绘</a></li>
+					<li><a href="">古建筑彩绘</a></li>
+					<li><a href="">商场彩绘</a></li>
+					<li><a href="">学校幼儿园彩绘</a></li>
+					<li><a href="">市政文化墙彩绘</a></li>
+				</ul>
+			</div>
+			<div class="col-md-2 col-sm-4 col-xs-4">
+				<h6 class="footer_h6">青岛墙绘特色服务</h6>
+				<div>3D立体画，青岛墙绘，幼儿园彩绘，样板间彩绘，古建筑门楼彩绘，家装背景墙彩绘。波普印象，您身边的手绘专家。</div>
+			</div>
+			<div class="col-md-4 col-sm-6 col-xs-8">
+				<h6 class="footer_h6">联系</h6>
+				<p>电话：123456789</p>
+				<p>Q  Q：1059355065</p>
+				<p>邮箱：1059355065@qq.com</p>
+				<p>地址：四川省成都市新都区</p>
+			</div>
+			<div class="col-md-2 col-sm-6 col-xs-4">
+				<h6 class="footer_h6">关注</h6>
+				<p><a href=""><img id="img_h" style="width: 24; height: 24;" src="picture_img/QQ截图20200821103405.png" alt=""></a>&nbsp;&nbsp;<a href=""><img id="img_h" style="width: 24;height: 24;" src="picture_img/QQ截图20200821103441.png" alt=""></a></p>
+				<img id="img_h" style="width: 100;height: 100;" src="picture_img/8228.jpg" alt="">
+			</div>
+			</div>
+			
+			<div class="footer_bottom">
+				<p class="m-1">Copyright © 2016波普印象文化传播有限公司版权所有 鲁ICP备14011730</p>
+			</div>
+		</footer>
+			
+	</body>
+</html>
